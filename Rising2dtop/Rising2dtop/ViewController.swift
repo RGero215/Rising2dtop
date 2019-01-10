@@ -15,8 +15,16 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Setup background color
         view.backgroundColor = .white
+        
         // Setup navbar
         setupNavigationStyle()
+        
+        // Setup navbar Add button
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "plus").withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(handleAddCompany))
+    }
+    
+    @objc fileprivate func handleAddCompany(){
+        print("Add Company")
     }
     
     fileprivate func setupNavigationStyle(){
