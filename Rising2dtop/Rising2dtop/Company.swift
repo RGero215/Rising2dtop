@@ -11,21 +11,21 @@ import Foundation
 typealias SocialLinkData = (link: String, type: SocialLink)
 
 /// The Information For The Business Card Node & Contact Details
-struct Company{
-    
-    var firstName: String
-    var surname: String
-    var userImage: String
-    var cardImage: String
-    var position: String
-    var company: String
-    var address: BusinessAddress
-    var website: SocialLinkData
-    var phoneNumber: String
-    var email: String
-    var accountOne: SocialLinkData
-    var accountTwo: SocialLinkData
-}
+//struct Company{
+//
+//    var firstName: String
+//    var surname: String
+//    var userImage: String
+//    var cardImage: String
+//    var position: String
+//    var company: String
+//    var address: BusinessAddress
+//    var website: SocialLinkData
+//    var phoneNumber: String
+//    var email: String
+//    var accountOne: SocialLinkData
+//    var accountTwo: SocialLinkData
+//}
 
 /// The Associates Business Address
 struct BusinessAddress{
