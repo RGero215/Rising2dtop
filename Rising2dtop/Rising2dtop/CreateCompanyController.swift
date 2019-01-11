@@ -11,11 +11,16 @@ import CoreData
 
 protocol CreateCompanyControllerDelegate {
     func didAddCompany(company: Company)
+    func didEditCompany(company: Company)
 }
 
 class CreateCompanyController: UIViewController {
     
-    var company: Company?
+    var company: Company? {
+        didSet {
+            nameTextField.text = company?.name
+        }
+    }
     
     var delegate: CreateCompanyControllerDelegate?
     
@@ -96,25 +101,11 @@ class CreateCompanyController: UIViewController {
     @objc fileprivate func handleSave(){
         print("Saving...")
         
-        // initialization of Core Data stack
-        let context = CoreDataManager.shared.persistentContainer.viewContext
-        
-        let company = NSEntityDescription.insertNewObject(forEntityName: "Company", into: context)
-        company.setValue(nameTextField.text, forKey: "name")
-        
-        //perform the save
-        do {
-            try context.save()
-            
-            // success
-            dismiss(animated: true) {
-            self.delegate?.didAddCompany(company: company as! Company)
-            }
-            
-        } catch let saveErr {
-            print("Failed to save company: ", saveErr)
+        if company == nil {
+            createCompany()
+        } else {
+            saveCompanyChanges()
         }
-        
         
 //        dismiss(animated: true) {
 //            guard let companyName = self.nameTextField.text else { return }
@@ -124,5 +115,30 @@ class CreateCompanyController: UIViewController {
 //            self.delegate?.didAddCompany(company: company)
 //        }
         
+    }
+    
+    fileprivate func createCompany(){
+        if company == nil {
+            createCompany()
+        } else {
+            saveCompanyChanges()
+        }
+    }
+    
+    fileprivate func saveCompanyChanges(){
+        
+        let context = CoreDataManager.shared.persistentContainer.viewContext
+        
+        company?.name = nameTextField.text
+        
+        do {
+            try context.save()
+            dismiss(animated: true, completion: {
+                self.delegate?.didEditCompany(company: self.company! )
+            })
+        } catch let saveErr {
+            print("Failed to save company changes:", saveErr)
+        }
+    
     }
 }
