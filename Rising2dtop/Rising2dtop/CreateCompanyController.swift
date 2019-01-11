@@ -18,7 +18,7 @@ class CreateCompanyController: UIViewController {
     
     var company: Company? {
         didSet {
-            nameTextField.text = company?.name
+            nameTextField.text = company?.company
         }
     }
     
@@ -118,10 +118,18 @@ class CreateCompanyController: UIViewController {
     }
     
     fileprivate func createCompany(){
-        if company == nil {
-            createCompany()
-        } else {
-            saveCompanyChanges()
+        let context = CoreDataManager.shared.persistentContainer.viewContext
+        
+        let company = NSEntityDescription.insertNewObject(forEntityName: "Company", into: context)
+        company.setValue(nameTextField.text, forKey: "company")
+        // perform save
+        do {
+            try context.save()
+            dismiss(animated: true, completion: {
+                self.delegate?.didAddCompany(company: company as! Company)
+            })
+        } catch let saveErr {
+            print("Failed to create company:", saveErr)
         }
     }
     
@@ -129,7 +137,7 @@ class CreateCompanyController: UIViewController {
         
         let context = CoreDataManager.shared.persistentContainer.viewContext
         
-        company?.name = nameTextField.text
+        company?.company = nameTextField.text
         
         do {
             try context.save()

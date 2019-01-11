@@ -65,7 +65,7 @@ class CompaniesController: UITableViewController, CreateCompanyControllerDelegat
             let companies = try context.fetch(fetchRequest)
             
             companies.forEach { (company) in
-                print(company.name ?? "")
+                print(company.company ?? "")
             }
             
             self.companies = companies
@@ -138,7 +138,7 @@ class CompaniesController: UITableViewController, CreateCompanyControllerDelegat
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath)
         let company = companies[indexPath.row]
-        cell.textLabel?.text = company.name
+        cell.textLabel?.text = company.company
         
         cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         
@@ -152,7 +152,7 @@ class CompaniesController: UITableViewController, CreateCompanyControllerDelegat
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (_ , indexPath) in
             let company = self.companies[indexPath.row]
-            print("Attempting to delete company:", company.name ?? "")
+            print("Attempting to delete company:", company.company ?? "")
             
             // remove the company from our tableview
             self.companies.remove(at: indexPath.row)
