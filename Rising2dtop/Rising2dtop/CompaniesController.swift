@@ -8,12 +8,32 @@
 
 import UIKit
 
+extension UIViewController {
+    func setupNavigationStyle(){
+        
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.barTintColor = .darkYellow
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        let logo = UIImage(named: "app_icon.png")
+        let imageView = UIImageView(image:logo)
+        imageView.layer.cornerRadius = 7.0
+        imageView.clipsToBounds = true
+        navigationItem.titleView = imageView
+        
+        
+    }
+}
+
 class CompaniesController: UITableViewController {
     
     let companies = [
         Company(firstName: "Ramon", surname: "Geronimo", userImage: "", cardImage: "", position: "Founder/CEO", company: "DormStartups", address: BusinessAddress(street: "246 McAllister ST", city: "San Francisco", state: "CA", postalCode: "94102", coordinates: (latittude: 37.7809473, longtitude: -122.4135812)), website: SocialLinkData(link: "https://dormstartups.tv", type: .Website), phoneNumber: "2018510284", email: "rgero215@100gmail.com", accountOne: SocialLinkData(link: "https://www.linkedin.com/in/rgero215/", type: .StackOverFlow), accountTwo: SocialLinkData(link: "https://github.com/RGero215", type: .GitHub)),
         
         Company(firstName: "Ramon", surname: "Geronimo", userImage: "", cardImage: "", position: "Founder/CEO", company: "Rising To The Top", address: BusinessAddress(street: "246 McAllister ST", city: "San Francisco", state: "CA", postalCode: "94102", coordinates: (latittude: 37.7809473, longtitude: -122.4135812)), website: SocialLinkData(link: "https://rising2dtop.org", type: .Website), phoneNumber: "2018510284", email: "rgero215@gmail.com", accountOne: SocialLinkData(link: "https://www.linkedin.com/in/rgero215/", type: .StackOverFlow), accountTwo: SocialLinkData(link: "https://github.com/RGero215", type: .GitHub)),
+        
+        Company(firstName: "Ramon", surname: "Geronimo", userImage: "", cardImage: "", position: "Founder/CEO", company: "The 2 Become 1", address: BusinessAddress(street: "246 McAllister ST", city: "San Francisco", state: "CA", postalCode: "94102", coordinates: (latittude: 37.7809473, longtitude: -122.4135812)), website: SocialLinkData(link: "https://the2become1.us", type: .Website), phoneNumber: "2018510284", email: "rgero215@gmail.com", accountOne: SocialLinkData(link: "https://www.linkedin.com/in/rgero215/", type: .StackOverFlow), accountTwo: SocialLinkData(link: "https://github.com/RGero215", type: .GitHub))
     ]
     
     override func viewDidLoad() {
@@ -43,6 +63,11 @@ class CompaniesController: UITableViewController {
     
     @objc fileprivate func handleAddCompany(){
         print("Add Company")
+        
+        let createCompanyController = CreateCompanyController()
+        
+        let navController = UINavigationController(rootViewController: createCompanyController)
+        present(navController, animated: true)
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -68,23 +93,6 @@ class CompaniesController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return companies.count
     }
-    
-    fileprivate func setupNavigationStyle(){
-        
-        navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.barTintColor = .darkYellow
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        let logo = UIImage(named: "app_icon.png")
-        let imageView = UIImageView(image:logo)
-        imageView.layer.cornerRadius = 7.0
-        imageView.clipsToBounds = true
-        navigationItem.titleView = imageView
-        
-
-    }
-
 
 }
 

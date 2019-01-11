@@ -14,6 +14,7 @@
 		8716A44221E7EDEF0030E946 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8716A44021E7EDEF0030E946 /* LaunchScreen.storyboard */; };
 		8716A44A21E803B00030E946 /* UIColor+theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8716A44921E803B00030E946 /* UIColor+theme.swift */; };
 		8716A44C21E814600030E946 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8716A44B21E814600030E946 /* Company.swift */; };
+		8716A44E21E826A50030E946 /* CreateCompanyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8716A44D21E826A50030E946 /* CreateCompanyController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		8716A44321E7EDEF0030E946 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8716A44921E803B00030E946 /* UIColor+theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+theme.swift"; sourceTree = "<group>"; };
 		8716A44B21E814600030E946 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
+		8716A44D21E826A50030E946 /* CreateCompanyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCompanyController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			children = (
 				8716A43721E7EDEE0030E946 /* AppDelegate.swift */,
 				8716A43921E7EDEE0030E946 /* CompaniesController.swift */,
+				8716A44D21E826A50030E946 /* CreateCompanyController.swift */,
 				8716A44B21E814600030E946 /* Company.swift */,
 				8716A44921E803B00030E946 /* UIColor+theme.swift */,
 				8716A43B21E7EDEE0030E946 /* Main.storyboard */,
@@ -143,6 +146,7 @@
 			files = (
 				8716A44A21E803B00030E946 /* UIColor+theme.swift in Sources */,
 				8716A43A21E7EDEE0030E946 /* CompaniesController.swift in Sources */,
+				8716A44E21E826A50030E946 /* CreateCompanyController.swift in Sources */,
 				8716A43821E7EDEE0030E946 /* AppDelegate.swift in Sources */,
 				8716A44C21E814600030E946 /* Company.swift in Sources */,
 			);
