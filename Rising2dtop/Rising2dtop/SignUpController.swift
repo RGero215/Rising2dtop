@@ -180,9 +180,8 @@ class SignUpController: UIViewController, UINavigationControllerDelegate, UIImag
                             return
                         }
                         print("Successfully saved user info to db")
-                        let companiesController = CompaniesController()
-                        let nav = CustomNavigationController(rootViewController: companiesController)
-                        self.present(nav, animated: true, completion: nil)
+                        let baseSlidingController = BaseSlidingController()
+                        self.present(baseSlidingController, animated: true, completion: nil)
                         
                         
                     })

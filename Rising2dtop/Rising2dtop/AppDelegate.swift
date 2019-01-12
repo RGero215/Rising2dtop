@@ -27,10 +27,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         window = UIWindow()
         window?.makeKeyAndVisible()
+        let baseSlidingController = BaseSlidingController()
         let companiesController = CompaniesController()
-//        let signUpController = SignUpController()
         let navController = CustomNavigationController(rootViewController: companiesController)
-        window?.rootViewController = navController
+        window?.rootViewController = baseSlidingController
         
         return true
     }

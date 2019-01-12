@@ -85,8 +85,8 @@ class LoginController: UIViewController {
             }
             print("Successfully logged back in with user:", user?.user.uid ?? "")
             self.delegate?.didFinishLoggingIn()
-            self.navigationController?.popToRootViewController(animated: true)
-            self.dismiss(animated: true, completion: nil)
+            let baseSlidingController = BaseSlidingController()
+            self.present(baseSlidingController, animated: true, completion: nil)
             
         }
     }
