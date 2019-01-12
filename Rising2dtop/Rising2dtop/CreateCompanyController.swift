@@ -18,35 +18,129 @@ class CreateCompanyController: UIViewController {
     
     var company: Company? {
         didSet {
+            positionTextField.text = company?.position
             nameTextField.text = company?.company
+//            addressTextField.text = company?.address
+//            websiteTextField.text = company?.website
+            phoneTextField.text = company?.phoneNumber
+            emailTextField.text = company?.email
+//            accountOneTextField.text = company?.accountOne
+//            accountTwoTextField.text = company?.accountTwo
         }
     }
     
     var delegate: CreateCompanyControllerDelegate?
     
-    
-    let nameLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Name"
-        label.textColor = .white
-        // enable autolayout
-        label.translatesAutoresizingMaskIntoConstraints = false
-        
-        return label
-    }()
-    
+    // Company name textfield
     let nameTextField: UITextField = {
         let textField = UITextField()
+        textField.borderStyle = .roundedRect
+        textField.backgroundColor = UIColor(white: 0, alpha: 0.03)
+        textField.font = UIFont.boldSystemFont(ofSize: 14)
         textField.textColor = .white
         textField.attributedPlaceholder = NSAttributedString(string: "Enter company name", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
     
+    // position textfield
+    let positionTextField: UITextField = {
+        let textField = UITextField()
+        textField.borderStyle = .roundedRect
+        textField.backgroundColor = UIColor(white: 0, alpha: 0.03)
+        textField.font = UIFont.boldSystemFont(ofSize: 14)
+        textField.textColor = .white
+        textField.textColor = .white
+        textField.attributedPlaceholder = NSAttributedString(string: "Enter company position", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        return textField
+    }()
+    
+    // Address textfield
+    let addressTextField: UITextField = {
+        let textField = UITextField()
+        textField.borderStyle = .roundedRect
+        textField.backgroundColor = UIColor(white: 0, alpha: 0.03)
+        textField.font = UIFont.boldSystemFont(ofSize: 14)
+        textField.textColor = .white
+        textField.textColor = .white
+        textField.attributedPlaceholder = NSAttributedString(string: "Enter company address", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        return textField
+    }()
+    
+    // Website textfield
+    let websiteTextField: UITextField = {
+        let textField = UITextField()
+        textField.borderStyle = .roundedRect
+        textField.backgroundColor = UIColor(white: 0, alpha: 0.03)
+        textField.font = UIFont.boldSystemFont(ofSize: 14)
+        textField.textColor = .white
+        textField.textColor = .white
+        textField.attributedPlaceholder = NSAttributedString(string: "Enter company website", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        return textField
+    }()
+    
+    
+    // Phone textfield
+    let phoneTextField: UITextField = {
+        let textField = UITextField()
+        textField.borderStyle = .roundedRect
+        textField.backgroundColor = UIColor(white: 0, alpha: 0.03)
+        textField.font = UIFont.boldSystemFont(ofSize: 14)
+        textField.textColor = .white
+        textField.textColor = .white
+        textField.attributedPlaceholder = NSAttributedString(string: "Enter company phone number", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        return textField
+    }()
+    
+    // company email textfield
+    let emailTextField: UITextField = {
+        let textField = UITextField()
+        textField.borderStyle = .roundedRect
+        textField.backgroundColor = UIColor(white: 0, alpha: 0.03)
+        textField.font = UIFont.boldSystemFont(ofSize: 14)
+        textField.textColor = .white
+        textField.textColor = .white
+        textField.attributedPlaceholder = NSAttributedString(string: "Enter company email", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        return textField
+    }()
+    
+    // SocialLink Account 1 textfield
+    let accountOneTextField: UITextField = {
+        let textField = UITextField()
+        textField.borderStyle = .roundedRect
+        textField.backgroundColor = UIColor(white: 0, alpha: 0.03)
+        textField.font = UIFont.boldSystemFont(ofSize: 14)
+        textField.textColor = .white
+        textField.textColor = .white
+        textField.attributedPlaceholder = NSAttributedString(string: "e.g. LinkedIn, Facebook", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        return textField
+    }()
+    
+    // SocialLink Account 2 textfield
+    let accountTwoTextField: UITextField = {
+        let textField = UITextField()
+        textField.borderStyle = .roundedRect
+        textField.backgroundColor = UIColor(white: 0, alpha: 0.03)
+        textField.font = UIFont.boldSystemFont(ofSize: 14)
+        textField.textColor = .white
+        textField.textColor = .white
+        textField.attributedPlaceholder = NSAttributedString(string: "e.g. GitHub, Instagram", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        return textField
+    }()
+    
+    
     override func viewDidLoad(){
         super.viewDidLoad()
         
         setupUI()
+        
         
         view.backgroundColor = .white
         
@@ -58,6 +152,7 @@ class CreateCompanyController: UIViewController {
         navigationItem.rightBarButtonItem?.tintColor = .white
         
         setupNavigationStyle()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -78,20 +173,9 @@ class CreateCompanyController: UIViewController {
         lightDarkBackground.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         lightDarkBackground.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
-        // Setup name label auto layout
-        view.addSubview(nameLabel)
-        nameLabel.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        nameLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16).isActive = true
-        nameLabel.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        nameLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        
         // Setup name textfield auto layout
-        view.addSubview(nameTextField)
-        nameTextField.leftAnchor.constraint(equalTo: nameLabel.rightAnchor).isActive = true
-        nameTextField.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        nameTextField.bottomAnchor.constraint(equalTo: nameLabel.bottomAnchor).isActive = true
-        nameTextField.topAnchor.constraint(equalTo: nameLabel.topAnchor).isActive = true
         
+        setupInputFields(lightDarkBackground)
     }
     
     @objc fileprivate func handleCancel() {
@@ -107,21 +191,20 @@ class CreateCompanyController: UIViewController {
             saveCompanyChanges()
         }
         
-//        dismiss(animated: true) {
-//            guard let companyName = self.nameTextField.text else { return }
-//            
-//            let company = Company(firstName: "Ramon", surname: "Geronimo", userImage: "", cardImage: "", position: "Founder/CEO", company: companyName, address: BusinessAddress(street: "246 McAllister ST", city: "San Francisco", state: "CA", postalCode: "94102", coordinates: (latittude: 37.7809473, longtitude: -122.4135812)), website: SocialLinkData(link: "https://the2become1.us", type: .Website), phoneNumber: "2018510284", email: "rgero215@gmail.com", accountOne: SocialLinkData(link: "https://www.linkedin.com/in/rgero215/", type: .StackOverFlow), accountTwo: SocialLinkData(link: "https://github.com/RGero215", type: .GitHub))
-//            
-//            self.delegate?.didAddCompany(company: company)
-//        }
-        
     }
     
     fileprivate func createCompany(){
         let context = CoreDataManager.shared.persistentContainer.viewContext
         
         let company = NSEntityDescription.insertNewObject(forEntityName: "Company", into: context)
+        company.setValue(positionTextField.text, forKey: "position")
         company.setValue(nameTextField.text, forKey: "company")
+        company.setValue(addressTextField.text, forKey: "address")
+        company.setValue(websiteTextField.text, forKey: "website")
+        company.setValue(phoneTextField.text, forKey: "phone")
+        company.setValue(emailTextField.text, forKey: "email")
+        company.setValue(accountOneTextField.text, forKey: "accountOne")
+        company.setValue(accountTwoTextField.text, forKey: "accountTwo")
         // perform save
         do {
             try context.save()
@@ -137,7 +220,14 @@ class CreateCompanyController: UIViewController {
         
         let context = CoreDataManager.shared.persistentContainer.viewContext
         
+        company?.company = positionTextField.text
         company?.company = nameTextField.text
+        company?.company = addressTextField.text
+        company?.company = websiteTextField.text
+        company?.company = phoneTextField.text
+        company?.company = emailTextField.text
+        company?.company = accountOneTextField.text
+        company?.company = accountTwoTextField.text
         
         do {
             try context.save()
@@ -148,5 +238,20 @@ class CreateCompanyController: UIViewController {
             print("Failed to save company changes:", saveErr)
         }
     
+    }
+    
+    fileprivate func setupInputFields(_ lightBackgroundView: UIView) {
+        
+        let stackView = UIStackView(arrangedSubviews: [nameTextField, positionTextField, addressTextField, websiteTextField, phoneTextField, emailTextField, accountOneTextField, accountTwoTextField])
+        stackView.axis = .vertical
+        stackView.spacing = 10
+        stackView.distribution = .fillEqually
+        stackView.layer.borderColor = UIColor.darkYellow.cgColor
+        stackView.layer.borderWidth = 2
+        
+        view.addSubview(stackView)
+        
+        
+        stackView.anchor(top: lightBackgroundView.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 20, paddingLeft: 40, paddingBottom: 0, paddingRight: 40, width: 0, height: view.bounds.height / 2)
     }
 }

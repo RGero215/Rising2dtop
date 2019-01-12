@@ -17,9 +17,15 @@
 		8716A44E21E826A50030E946 /* CreateCompanyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8716A44D21E826A50030E946 /* CreateCompanyController.swift */; };
 		8716A45121E876850030E946 /* CompanyModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8716A44F21E876850030E946 /* CompanyModel.xcdatamodeld */; };
 		8716A45321E87EE20030E946 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8716A45221E87EE20030E946 /* CoreDataManager.swift */; };
+		8716A45521E8DC7F0030E946 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8716A45421E8DC7F0030E946 /* SignUpController.swift */; };
+		8716A45A21E8EB790030E946 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8716A45921E8EB790030E946 /* Extensions.swift */; };
+		8726ED0C21E98577000CC54D /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8726ED0B21E98577000CC54D /* LoginController.swift */; };
+		8726ED0E21E9884F000CC54D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8726ED0D21E9884E000CC54D /* GoogleService-Info.plist */; };
+		AF1B1706BCD08C4BD06FB173 /* Pods_Rising2dtop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96756437B18E8D0D2D45BB75 /* Pods_Rising2dtop.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5F77DA8DADD949DBB48FE2B8 /* Pods-Rising2dtop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rising2dtop.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Rising2dtop/Pods-Rising2dtop.debug.xcconfig"; sourceTree = "<group>"; };
 		8716A43421E7EDEE0030E946 /* Rising2dtop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rising2dtop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8716A43721E7EDEE0030E946 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8716A43921E7EDEE0030E946 /* CompaniesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesController.swift; sourceTree = "<group>"; };
@@ -32,6 +38,12 @@
 		8716A44D21E826A50030E946 /* CreateCompanyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCompanyController.swift; sourceTree = "<group>"; };
 		8716A45021E876850030E946 /* CompanyModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CompanyModel.xcdatamodel; sourceTree = "<group>"; };
 		8716A45221E87EE20030E946 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		8716A45421E8DC7F0030E946 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
+		8716A45921E8EB790030E946 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		8726ED0B21E98577000CC54D /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		8726ED0D21E9884E000CC54D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		96756437B18E8D0D2D45BB75 /* Pods_Rising2dtop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rising2dtop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF39DD17B1BCB247CC193BBA /* Pods-Rising2dtop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rising2dtop.release.xcconfig"; path = "Pods/Target Support Files/Pods-Rising2dtop/Pods-Rising2dtop.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF1B1706BCD08C4BD06FB173 /* Pods_Rising2dtop.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +63,8 @@
 			children = (
 				8716A43621E7EDEE0030E946 /* Rising2dtop */,
 				8716A43521E7EDEE0030E946 /* Products */,
+				FF6697D5F18370D074134D41 /* Pods */,
+				DD9148B584873FB022BCBFBD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -68,15 +83,44 @@
 				8716A43921E7EDEE0030E946 /* CompaniesController.swift */,
 				8716A44F21E876850030E946 /* CompanyModel.xcdatamodeld */,
 				8716A44D21E826A50030E946 /* CreateCompanyController.swift */,
+				8726ED0B21E98577000CC54D /* LoginController.swift */,
+				8716A45421E8DC7F0030E946 /* SignUpController.swift */,
 				8716A45221E87EE20030E946 /* CoreDataManager.swift */,
 				8716A44B21E814600030E946 /* Company.swift */,
 				8716A44921E803B00030E946 /* UIColor+theme.swift */,
 				8716A43B21E7EDEE0030E946 /* Main.storyboard */,
 				8716A43E21E7EDEF0030E946 /* Assets.xcassets */,
+				8716A45621E8DE520030E946 /* Utils */,
 				8716A44021E7EDEF0030E946 /* LaunchScreen.storyboard */,
 				8716A44321E7EDEF0030E946 /* Info.plist */,
+				8726ED0D21E9884E000CC54D /* GoogleService-Info.plist */,
 			);
 			path = Rising2dtop;
+			sourceTree = "<group>";
+		};
+		8716A45621E8DE520030E946 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				8716A45921E8EB790030E946 /* Extensions.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		DD9148B584873FB022BCBFBD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				96756437B18E8D0D2D45BB75 /* Pods_Rising2dtop.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FF6697D5F18370D074134D41 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5F77DA8DADD949DBB48FE2B8 /* Pods-Rising2dtop.debug.xcconfig */,
+				BF39DD17B1BCB247CC193BBA /* Pods-Rising2dtop.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -86,9 +130,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8716A44621E7EDEF0030E946 /* Build configuration list for PBXNativeTarget "Rising2dtop" */;
 			buildPhases = (
+				1922B7D22B4D82B18E8ED9A5 /* [CP] Check Pods Manifest.lock */,
 				8716A43021E7EDEE0030E946 /* Sources */,
 				8716A43121E7EDEE0030E946 /* Frameworks */,
 				8716A43221E7EDEE0030E946 /* Resources */,
+				421EAF1E5CA36A707C0F2A81 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -137,6 +183,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8726ED0E21E9884F000CC54D /* GoogleService-Info.plist in Resources */,
 				8716A44221E7EDEF0030E946 /* LaunchScreen.storyboard in Resources */,
 				8716A43F21E7EDEF0030E946 /* Assets.xcassets in Resources */,
 				8716A43D21E7EDEE0030E946 /* Main.storyboard in Resources */,
@@ -145,18 +192,74 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1922B7D22B4D82B18E8ED9A5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Rising2dtop-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		421EAF1E5CA36A707C0F2A81 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Rising2dtop/Pods-Rising2dtop-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Rising2dtop/Pods-Rising2dtop-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8716A43021E7EDEE0030E946 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				8716A44A21E803B00030E946 /* UIColor+theme.swift in Sources */,
+				8716A45A21E8EB790030E946 /* Extensions.swift in Sources */,
 				8716A43A21E7EDEE0030E946 /* CompaniesController.swift in Sources */,
 				8716A44E21E826A50030E946 /* CreateCompanyController.swift in Sources */,
 				8716A43821E7EDEE0030E946 /* AppDelegate.swift in Sources */,
 				8716A44C21E814600030E946 /* Company.swift in Sources */,
 				8716A45321E87EE20030E946 /* CoreDataManager.swift in Sources */,
+				8716A45521E8DC7F0030E946 /* SignUpController.swift in Sources */,
 				8716A45121E876850030E946 /* CompanyModel.xcdatamodeld in Sources */,
+				8726ED0C21E98577000CC54D /* LoginController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +403,7 @@
 		};
 		8716A44721E7EDEF0030E946 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F77DA8DADD949DBB48FE2B8 /* Pods-Rising2dtop.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -318,6 +422,7 @@
 		};
 		8716A44821E7EDEF0030E946 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BF39DD17B1BCB247CC193BBA /* Pods-Rising2dtop.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

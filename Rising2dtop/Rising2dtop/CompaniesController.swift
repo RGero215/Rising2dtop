@@ -8,24 +8,7 @@
 
 import UIKit
 import CoreData
-
-extension UIViewController {
-    func setupNavigationStyle(){
-        
-        navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.barTintColor = .darkYellow
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        let logo = UIImage(named: "app_icon.png")
-        let imageView = UIImageView(image:logo)
-        imageView.layer.cornerRadius = 7.0
-        imageView.clipsToBounds = true
-        navigationItem.titleView = imageView
-        
-        
-    }
-}
+import Firebase
 
 class CompaniesController: UITableViewController, CreateCompanyControllerDelegate {
     
@@ -45,15 +28,7 @@ class CompaniesController: UITableViewController, CreateCompanyControllerDelegat
     }
     
     var companies = [Company]()
-    
-    
-//    var companies = [
-//        Company(firstName: "Ramon", surname: "Geronimo", userImage: "", cardImage: "", position: "Founder/CEO", company: "DormStartups", address: BusinessAddress(street: "246 McAllister ST", city: "San Francisco", state: "CA", postalCode: "94102", coordinates: (latittude: 37.7809473, longtitude: -122.4135812)), website: SocialLinkData(link: "https://dormstartups.tv", type: .Website), phoneNumber: "2018510284", email: "rgero215@100gmail.com", accountOne: SocialLinkData(link: "https://www.linkedin.com/in/rgero215/", type: .StackOverFlow), accountTwo: SocialLinkData(link: "https://github.com/RGero215", type: .GitHub)),
-//
-//        Company(firstName: "Ramon", surname: "Geronimo", userImage: "", cardImage: "", position: "Founder/CEO", company: "Rising To The Top", address: BusinessAddress(street: "246 McAllister ST", city: "San Francisco", state: "CA", postalCode: "94102", coordinates: (latittude: 37.7809473, longtitude: -122.4135812)), website: SocialLinkData(link: "https://rising2dtop.org", type: .Website), phoneNumber: "2018510284", email: "rgero215@gmail.com", accountOne: SocialLinkData(link: "https://www.linkedin.com/in/rgero215/", type: .StackOverFlow), accountTwo: SocialLinkData(link: "https://github.com/RGero215", type: .GitHub)),
-//
-//        Company(firstName: "Ramon", surname: "Geronimo", userImage: "", cardImage: "", position: "Founder/CEO", company: "The 2 Become 1", address: BusinessAddress(street: "246 McAllister ST", city: "San Francisco", state: "CA", postalCode: "94102", coordinates: (latittude: 37.7809473, longtitude: -122.4135812)), website: SocialLinkData(link: "https://the2become1.us", type: .Website), phoneNumber: "2018510284", email: "rgero215@gmail.com", accountOne: SocialLinkData(link: "https://www.linkedin.com/in/rgero215/", type: .StackOverFlow), accountTwo: SocialLinkData(link: "https://github.com/RGero215", type: .GitHub))
-//    ]
+
     
     fileprivate func fetchCompanies(){
         
@@ -81,9 +56,19 @@ class CompaniesController: UITableViewController, CreateCompanyControllerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if Auth.auth().currentUser == nil {
+            
+            DispatchQueue.main.async {
+                let loginController = LoginController()
+                let navController = UINavigationController(rootViewController: loginController)
+                self.present(navController, animated: true, completion: nil)
+            }
+            return
+        }
+        
         fetchCompanies()
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Reset", style: .plain, target: self, action: #selector(handleReset))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(handleReset))
         navigationItem.leftBarButtonItem?.tintColor = .white
         
         // Setup background color
@@ -111,6 +96,16 @@ class CompaniesController: UITableViewController, CreateCompanyControllerDelegat
     
     @objc fileprivate func handleReset(){
         print("Reset")
+        do {
+            try Auth.auth().signOut()
+            
+            let loginController = LoginController()
+            let navController = UINavigationController(rootViewController: loginController)
+            self.present(navController, animated: true, completion: nil)
+            
+        } catch let signOutErr {
+            print("Faile to sign out:", signOutErr)
+        }
     }
     
     @objc func handleAddCompany(){

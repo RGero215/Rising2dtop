@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>12772502024-nahc2flu9idt8i656slm5ppalv56i5k9.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.12772502024-nahc2flu9idt8i656slm5ppalv56i5k9</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCjlRvBEd_JRtV2glFiKD8E2LI_sxODcUY</string>
+	<key>GCM_SENDER_ID</key>
+	<string>12772502024</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.ramongeronimo.Rising2dtop</string>
+	<key>PROJECT_ID</key>
+	<string>rising2dtop-d7649</string>
+	<key>STORAGE_BUCKET</key>
+	<string>rising2dtop-d7649.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:12772502024:ios:1deadb4d2473eb6c</string>
+	<key>DATABASE_URL</key>
+	<string>https://rising2dtop-d7649.firebaseio.com</string>
+</dict>
+</plist>
