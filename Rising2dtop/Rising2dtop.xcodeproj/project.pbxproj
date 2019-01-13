@@ -15,7 +15,6 @@
 		8716A44A21E803B00030E946 /* UIColor+theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8716A44921E803B00030E946 /* UIColor+theme.swift */; };
 		8716A44C21E814600030E946 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8716A44B21E814600030E946 /* Company.swift */; };
 		8716A44E21E826A50030E946 /* CreateCompanyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8716A44D21E826A50030E946 /* CreateCompanyController.swift */; };
-		8716A45121E876850030E946 /* CompanyModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8716A44F21E876850030E946 /* CompanyModel.xcdatamodeld */; };
 		8716A45321E87EE20030E946 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8716A45221E87EE20030E946 /* CoreDataManager.swift */; };
 		8716A45521E8DC7F0030E946 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8716A45421E8DC7F0030E946 /* SignUpController.swift */; };
 		8716A45A21E8EB790030E946 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8716A45921E8EB790030E946 /* Extensions.swift */; };
@@ -32,6 +31,8 @@
 		87297DA421EA30DE005E708C /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87297DA321EA30DE005E708C /* ProfileImageView.swift */; };
 		87782F5921EA5DA600DF19CD /* ScanController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87782F5821EA5DA600DF19CD /* ScanController.swift */; };
 		87782F5B21EA75C800DF19CD /* TellYourStoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87782F5A21EA75C800DF19CD /* TellYourStoryController.swift */; };
+		87782F5D21EABDD400DF19CD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87782F5C21EABDD400DF19CD /* User.swift */; };
+		8786644321EB163500891C50 /* Company.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8786644121EB163500891C50 /* Company.xcdatamodeld */; };
 		AF1B1706BCD08C4BD06FB173 /* Pods_Rising2dtop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96756437B18E8D0D2D45BB75 /* Pods_Rising2dtop.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,7 +48,6 @@
 		8716A44921E803B00030E946 /* UIColor+theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+theme.swift"; sourceTree = "<group>"; };
 		8716A44B21E814600030E946 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		8716A44D21E826A50030E946 /* CreateCompanyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCompanyController.swift; sourceTree = "<group>"; };
-		8716A45021E876850030E946 /* CompanyModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CompanyModel.xcdatamodel; sourceTree = "<group>"; };
 		8716A45221E87EE20030E946 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		8716A45421E8DC7F0030E946 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		8716A45921E8EB790030E946 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -64,6 +64,8 @@
 		87297DA321EA30DE005E708C /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
 		87782F5821EA5DA600DF19CD /* ScanController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanController.swift; sourceTree = "<group>"; };
 		87782F5A21EA75C800DF19CD /* TellYourStoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TellYourStoryController.swift; sourceTree = "<group>"; };
+		87782F5C21EABDD400DF19CD /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8786644221EB163500891C50 /* Company.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Company.xcdatamodel; sourceTree = "<group>"; };
 		96756437B18E8D0D2D45BB75 /* Pods_Rising2dtop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rising2dtop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF39DD17B1BCB247CC193BBA /* Pods-Rising2dtop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rising2dtop.release.xcconfig"; path = "Pods/Target Support Files/Pods-Rising2dtop/Pods-Rising2dtop.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,8 +104,9 @@
 			isa = PBXGroup;
 			children = (
 				8716A43721E7EDEE0030E946 /* AppDelegate.swift */,
-				8716A44F21E876850030E946 /* CompanyModel.xcdatamodeld */,
 				8716A44D21E826A50030E946 /* CreateCompanyController.swift */,
+				87782F5C21EABDD400DF19CD /* User.swift */,
+				8786644121EB163500891C50 /* Company.xcdatamodeld */,
 				8726ED1721EA2965000CC54D /* Menu */,
 				8726ED0B21E98577000CC54D /* LoginController.swift */,
 				8716A45421E8DC7F0030E946 /* SignUpController.swift */,
@@ -301,15 +304,16 @@
 				8726ED1421EA23E5000CC54D /* ProjectsWeLoveController.swift in Sources */,
 				87297DA421EA30DE005E708C /* ProfileImageView.swift in Sources */,
 				87297DA021EA2FE8005E708C /* CustomHeaderView.swift in Sources */,
+				87782F5D21EABDD400DF19CD /* User.swift in Sources */,
 				8716A44E21E826A50030E946 /* CreateCompanyController.swift in Sources */,
 				8726ED1221EA23B9000CC54D /* DonateController.swift in Sources */,
 				8716A43821E7EDEE0030E946 /* AppDelegate.swift in Sources */,
 				87782F5921EA5DA600DF19CD /* ScanController.swift in Sources */,
 				8716A44C21E814600030E946 /* Company.swift in Sources */,
 				8716A45321E87EE20030E946 /* CoreDataManager.swift in Sources */,
+				8786644321EB163500891C50 /* Company.xcdatamodeld in Sources */,
 				8726ED1921EA2986000CC54D /* MenuController.swift in Sources */,
 				8716A45521E8DC7F0030E946 /* SignUpController.swift in Sources */,
-				8716A45121E876850030E946 /* CompanyModel.xcdatamodeld in Sources */,
 				8726ED0C21E98577000CC54D /* LoginController.swift in Sources */,
 				8726ED1021EA2288000CC54D /* BaseSlidingController.swift in Sources */,
 			);
@@ -515,13 +519,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		8716A44F21E876850030E946 /* CompanyModel.xcdatamodeld */ = {
+		8786644121EB163500891C50 /* Company.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				8716A45021E876850030E946 /* CompanyModel.xcdatamodel */,
+				8786644221EB163500891C50 /* Company.xcdatamodel */,
 			);
-			currentVersion = 8716A45021E876850030E946 /* CompanyModel.xcdatamodel */;
-			path = CompanyModel.xcdatamodeld;
+			currentVersion = 8786644221EB163500891C50 /* Company.xcdatamodel */;
+			path = Company.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

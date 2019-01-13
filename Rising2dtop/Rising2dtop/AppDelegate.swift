@@ -28,8 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow()
         window?.makeKeyAndVisible()
         let baseSlidingController = BaseSlidingController()
-        let companiesController = CompaniesController()
-        let navController = CustomNavigationController(rootViewController: companiesController)
+        
         window?.rootViewController = baseSlidingController
         
         return true

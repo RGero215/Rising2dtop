@@ -78,7 +78,7 @@ class SignUpController: UIViewController, UINavigationControllerDelegate, UIImag
     
     let nameTextField: UITextField = {
         let name = UITextField()
-        name.placeholder = "Name"
+        name.placeholder = "First Name"
         name.borderStyle = .roundedRect
         name.backgroundColor = UIColor(white: 0, alpha: 0.03)
         name.font = UIFont.boldSystemFont(ofSize: 14)
@@ -170,7 +170,7 @@ class SignUpController: UIViewController, UINavigationControllerDelegate, UIImag
                     print("Successfully created user: ", user.uid )
                     var ref: DatabaseReference!
                     
-                    let dictionaryValues = ["name": name, "profileImageUrl": String(describing: downloadURL), "lastName": lastName, "email": email]
+                    let dictionaryValues = ["firstName": name, "profileImageUrl": String(describing: downloadURL), "lastName": lastName, "email": email]
                     
                     let values = [user.uid: dictionaryValues]
                     ref = Database.database().reference()

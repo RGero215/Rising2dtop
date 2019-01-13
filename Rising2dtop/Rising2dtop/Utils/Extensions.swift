@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 extension UIViewController {
     func setupNavigationStyle(){
@@ -64,4 +65,64 @@ extension UIColor {
     static func lightGold() -> UIColor {
         return UIColor.rgb(red: 247, green: 208, blue: 120)
     }
+}
+
+extension UINavigationController {
+    open override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+}
+
+extension Database {
+    
+    static func fetchUserWithUID(uid: String, completion: @escaping (User) -> ()) {
+        Database.database().reference().child("users").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
+            guard let userDictionary = snapshot.value as? [String: Any] else {return}
+            let user = User(uid: uid, dictionary: userDictionary)
+            
+            completion(user
+            )
+            
+        }) { (err) in
+            print("Failed to fetch user for posts: ", err)
+        }
+    }
+}
+
+let storeImageCache = NSCache<NSString, AnyObject>()
+
+extension UIImageView {
+    
+    func loadImageUsingCacheWithUrlString(_ urlString: String) {
+        
+        self.image = nil
+        
+        //check cache for image first
+        if let cachedImage = storeImageCache.object(forKey: urlString as NSString) as? UIImage {
+            self.image = cachedImage
+            return
+        }
+        
+        //otherwise fire off a new download
+        let url = URL(string: urlString)
+        URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+            
+            //download hit an error so lets return out
+            if let error = error {
+                print(error)
+                return
+            }
+            
+            DispatchQueue.main.async(execute: {
+                
+                if let downloadedImage = UIImage(data: data!) {
+                    storeImageCache.setObject(downloadedImage, forKey: urlString as NSString)
+                    
+                    self.image = downloadedImage
+                }
+            })
+            
+        }).resume()
+    }
+    
 }

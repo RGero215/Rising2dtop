@@ -133,10 +133,29 @@ class CompaniesController: UITableViewController, CreateCompanyControllerDelegat
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath)
         let company = companies[indexPath.row]
-        cell.textLabel?.text = company.company
+        
+        if let name = company.company, let started = company.started {
+            
+            //MMM dd, yyyy
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MMM dd, yyyy"
+            let foundedDateString = dateFormatter.string(from: started)
+
+            let dateString = "\(name) - Started: \(foundedDateString)"
+            cell.textLabel?.text = dateString
+        } else {
+            cell.textLabel?.text = company.company
+        }
+        
         
         cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         
+        cell.imageView?.image =  #imageLiteral(resourceName: "photo")
+        
+        if let logo = company.logo {
+            cell.imageView?.image =  UIImage(data: logo)
+        }
+    
         return cell
     }
     

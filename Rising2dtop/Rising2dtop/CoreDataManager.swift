@@ -12,7 +12,7 @@ struct CoreDataManager {
     static let shared = CoreDataManager()
     
     let persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "CompanyModel")
+        let container = NSPersistentContainer(name: "Company")
         container.loadPersistentStores(completionHandler: { (storeDescription, err) in
             if let err = err {
                 fatalError("Loading of store failed: \(err)")
