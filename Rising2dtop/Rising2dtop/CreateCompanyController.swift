@@ -217,6 +217,9 @@ class CreateCompanyController: UIViewController, UINavigationControllerDelegate,
         
         setupNavigationStyle()
         
+        setupNotificationObservers()
+        setupTapGesture()
+        
     }
     // User object
     var user: User?
@@ -237,10 +240,12 @@ class CreateCompanyController: UIViewController, UINavigationControllerDelegate,
         navigationItem.title = company == nil ? "Create Company" : "Edit Company"
     }
     
+    
+    var lightDarkBackground = UIView()
     fileprivate func setupUI(){
-        
+       
         // Setup background color and auto layout
-        let lightDarkBackground = UIView()
+        
         lightDarkBackground.backgroundColor = .lightBlack
         lightDarkBackground.translatesAutoresizingMaskIntoConstraints = false
         
@@ -259,10 +264,17 @@ class CreateCompanyController: UIViewController, UINavigationControllerDelegate,
         view.addSubview(scrollView)
         setupScrollView(lightDarkBackground)
         
-        
         // Setup textfield auto layout
-        
         setupInputFields()
+        
+        // overall stack
+        view.addSubview(overallStackView)
+        overallStackView.axis = .vertical
+        overallStackView.spacing = 8
+        
+        overallStackView.anchor(top: nil, left: view.leftAnchor, bottom: scrollView.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 20, paddingBottom: 0, paddingRight: 20, width: 0, height: 0)
+        overallStackView.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor).isActive = true
+
     }
     
     @objc fileprivate func handleCancel() {
@@ -395,25 +407,55 @@ class CreateCompanyController: UIViewController, UINavigationControllerDelegate,
     
     }
     
+    var stackView = UIStackView()
+    
     fileprivate func setupInputFields() {
         
-        let stackView = UIStackView(arrangedSubviews: [nameTextField, positionTextField, addressTextField, websiteTextField, phoneTextField, emailTextField, accountOneTextField, accountTwoTextField])
+        stackView = UIStackView(arrangedSubviews: [nameTextField, positionTextField, addressTextField, websiteTextField, phoneTextField, emailTextField, accountOneTextField, accountTwoTextField])
         stackView.axis = .vertical
         stackView.spacing = 10
         stackView.distribution = .fillEqually
         stackView.layer.borderColor = UIColor.darkYellow.cgColor
         stackView.layer.borderWidth = 2
-        
-        scrollView.addSubview(stackView)
-        
-        
-        stackView.anchor(top: scrollView.topAnchor, left: scrollView.leftAnchor, bottom: nil, right: scrollView.rightAnchor, paddingTop: 20, paddingLeft: 40, paddingBottom: 0, paddingRight: 40, width: 0, height: scrollView.bounds.height / 2)
-        
-        // setup date picker
-        scrollView.addSubview(datePicker)
-        datePicker.anchor(top: stackView.bottomAnchor, left: scrollView.leftAnchor, bottom: nil, right: scrollView.rightAnchor, paddingTop: 20, paddingLeft: 40, paddingBottom: 0, paddingRight: 40, width: 0, height: 0)
+        stackView.topAnchor.constraint(equalTo: overallStackView.topAnchor, constant: 20).isActive = true
     }
     
+    fileprivate func setupNotificationObservers(){
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
     
+    @objc func handleKeyboardHide(){
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            self.view.transform = .identity
+        })
+    }
+    
+    lazy var overallStackView = UIStackView(arrangedSubviews: [stackView, datePicker])
+    
+    @objc func handleKeyboardShow(notification: Notification){
+        // Find the keyboard frame
+        guard let value = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {return}
+        let keyboardFrame = value.cgRectValue
+        print(keyboardFrame)
+        
+        // Size of the bottom of the screen
+        let bottomSpace = view.frame.height - overallStackView.frame.origin.y - overallStackView.frame.height
+        
+        let difference = keyboardFrame.height - bottomSpace
+        self.view.transform = CGAffineTransform(translationX: 0, y: -difference)
+    }
+    
+    fileprivate func setupTapGesture(){
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTapDismiss)))
+    }
+    
+    @objc fileprivate func handleTapDismiss(){
+        self.view.endEditing(true)
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            self.view.transform = .identity
+        })
+        
+    }
 
 }
